@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# generated / private media — never commit stream content
+/media/*
+!/media/.gitkeep
+
+# logs & runtime
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

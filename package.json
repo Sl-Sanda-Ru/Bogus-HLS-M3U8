@@ -1,0 +1,14 @@
+{
+  "name": "hls-obfuscation-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reference implementation of a Mouflon-style HLS obfuscation + pkey token gate (playlist decoy-swap). For protecting your OWN streams.",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "make-stream": "node scripts/make-test-stream.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

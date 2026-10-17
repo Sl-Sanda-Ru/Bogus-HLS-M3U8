@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HLS Obfuscation Demo</title>
+<!-- hls.js pinned, from cdnjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 15px/1.5 system-ui, sans-serif; max-width: 860px; margin: 24px auto; padding: 0 16px; }
+  h1 { font-size: 20px; }
+  video { width: 100%; background: #000; border-radius: 8px; aspect-ratio: 16/9; }
+  button { font: inherit; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+  pre { background: rgba(127,127,127,.12); padding: 10px; border-radius: 6px; overflow:auto; max-height: 240px; font-size: 12px; }
+  .row { display:flex; gap:10px; align-items:center; margin: 12px 0; flex-wrap: wrap; }
+  small { opacity: .7; }
+</style>
+</head>
+<body>
+  <h1>HLS obfuscation + pkey gate — demo</h1>
+  <p><small>Media playlist delivered to the player contains only <code>decoy.mp4</code>; real
+  segment URLs are hidden in <code>#EXT-X-GUARD</code> tags and only served with a valid, short-lived
+  <code>pkey</code>. The patched hls.js loader reverses it.</small></p>
+
+  <video id="video" controls muted autoplay playsinline></video>
+
+  <div class="row">
+    <button onclick="showRaw()">Show what a scraper sees (no pkey)</button>
+    <small>↳ every segment resolves to the decoy</small>
+  </div>
+  <pre id="raw"></pre>
+
+  <h3>log</h3>
+  <pre id="log"></pre>
+
+  <script src="player.js"></script>
+</body>
+</html>
